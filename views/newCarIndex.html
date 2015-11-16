@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<!-- ng-app says that this page is contolled by -->
+<head>
+	<title>firstangular</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap_theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body ng-controller="CarController">
+	
+	<div class="well container form-inline">
+	<input type="text" placeholder="Car Model" ng-model="car.model" class="form-control" />
+	
+	<input type="text" placeholder="Car Color" ng-model="car.color" class="form-control" />
+	
+	<input type="text" placeholder="Car Year" ng-model="car.year" class="form-control" />
+
+	<button type="button" class="btn btn-primary" ng-click="createCar()">submit</button>
+	</div>
+	<hr>
+	<!-- var c = cars[i]; -->
+	<div class="well container" ng-repeat="c in cars">
+		<h1>{{c.model}}</h1>
+		<h1>{{c.color}}</h1>
+		<h1>{{c.year}}</h1>
+		<button type="button" class="btn btn-danger" ng-click="cars.splice($index,1)">Delete</button>
+	</div>
+	<script src="/angular/angular.min.js"></script>
+	<script src="/javascript/app.js"></script>
+</body>
+</html>
